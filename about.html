@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Kuldeep Meena | Professional Developer & Accountant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a192f;
+            --secondary: #1e4b7c;
+            --accent: #00b4d8;
+            --light: #f8f9fa;
+            --dark: #0a192f;
+            --gray: #6c757d;
+            --gold: #ffd700;
+            --gradient: linear-gradient(135deg, #0a192f 0%, #1e4b7c 100%);
+            --gradient-gold: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Enhanced Professional Navbar */
+        header {
+            background-color: rgba(10, 25, 47, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        header.scrolled {
+            background-color: rgba(10, 25, 47, 0.98);
+            padding: 5px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 0;
+            transition: all 0.3s ease;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+            font-weight: 800;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a i {
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            transition: width 0.3s ease;
+            border-radius: 1px;
+        }
+
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+            z-index: 1001;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* About Page Hero */
+        .about-hero {
+            padding: 200px 0 100px;
+            background: linear-gradient(rgba(10, 25, 47, 0.92), rgba(10, 25, 47, 0.88)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+
+        .about-hero-content {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-text h2 {
+            font-size: 1.8rem;
+            margin-bottom: 35px;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 45px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        /* Animated Profile Image Container */
+        .profile-animation-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-height: 500px;
+        }
+
+        .profile-image-wrapper {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Outer Orbital Animation */
+        .orbit {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        .orbit-1 {
+            border: 2px dashed rgba(255, 215, 0, 0.4);
+            animation-duration: 25s;
+            animation-direction: reverse;
+        }
+
+        .orbit-2 {
+            width: 380px;
+            height: 380px;
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            animation-duration: 18s;
+        }
+
+        /* Floating Icons in Orbit */
+        .orbit-icon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .icon-1 {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 0s;
+        }
+
+        .icon-2 {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            animation-delay: 0.5s;
+        }
+
+        .icon-3 {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 1s;
+        }
+
+        .icon-4 {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            animation-delay: 1.5s;
+        }
+
+        /* Profile Image with Animation */
+        .profile-image-container {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid transparent;
+            background: var(--gradient-gold);
+            padding: 5px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 2;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: linear-gradient(45deg, #1e4b7c, #0a192f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5.5rem;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-image-container:hover .profile-image {
+            transform: scale(1.05);
+        }
+
+        /* Pulsing Rings Animation */
+        .pulse-ring {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            z-index: 1;
+            animation: pulse-ring 3s ease-out infinite;
+        }
+
+        .pulse-ring-1 {
+            animation-delay: 0.5s;
+        }
+
+        .pulse-ring-2 {
+            animation-delay: 1s;
+        }
+
+        .pulse-ring-3 {
+            animation-delay: 1.5s;
+        }
+
+        /* About Content Section */
+        .about-content {
+            padding: 120px 0;
+            background-color: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .about-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .about-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .about-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-gold);
+        }
+
+        .about-icon {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: var(--secondary);
+            display: inline-block;
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            background: rgba(30, 75, 124, 0.1);
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .about-card:hover .about-icon {
+            background: var(--gradient-gold);
+            color: var(--primary);
+            transform: rotateY(180deg);
+        }
+
+        .about-card h3 {
+            font-size: 1.9rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        .about-card p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .about-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .about-list li {
+            padding: 10px 0;
+            color: var(--gray);
+            position: relative;
+            padding-left: 35px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+        }
+
+        .about-list li:last-child {
+            border-bottom: none;
+        }
+
+        .about-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+            width: 25px;
+            height: 25px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 100px 0;
+            background-color: #f8fafc;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: var(--gradient-gold);
+        }
+
+        .timeline-item {
+            margin-bottom: 60px;
+            position: relative;
+            width: 50%;
+            padding-right: 40px;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            padding-left: 40px;
+            padding-right: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            right: -10px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            border: 4px solid white;
+            box-shadow: 0 0 0 5px rgba(255, 215, 0, 0.2);
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+            right: auto;
+        }
+
+        .timeline-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--gradient-gold);
+            color: var(--primary);
+            border-radius: 30px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        /* Enhanced Professional Footer */
+        footer {
+            background: var(--gradient);
+            color: white;
+            padding: 100px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-wave {
+            position: absolute;
+            top: -80px;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,160L48,170.7C96,181,192,203,288,197.3C384,192,480,160,576,154.7C672,149,768,171,864,165.3C960,160,1056,128,1152,133.3C1248,139,1344,181,1392,202.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column {
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo-icon {
+            width: 55px;
+            height: 55px;
+            background: var(--gradient-gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.6rem;
+            font-weight: 800;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .footer-logo-text {
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .footer-logo-text span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-column h3 {
+            font-size: 1.6rem;
+            margin-bottom: 35px;
+            color: var(--gold);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .footer-column p {
+            margin-bottom: 30px;
+            opacity: 0.85;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+        }
+
+        .footer-links a i {
+            color: var(--gold);
+            font-size: 1rem;
+            width: 20px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            transform: translateX(8px);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-info i {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-top: 5px;
+            min-width: 25px;
+        }
+
+        .contact-info strong {
+            display: block;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--gold);
+            color: var(--primary);
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 8px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .copyright {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Animations */
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(-50%); }
+            50% { transform: translateY(-15px) translateX(-50%); }
+        }
+
+        .icon-2, .icon-4 {
+            animation-name: float-horizontal;
+        }
+
+        @keyframes float-horizontal {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .about-hero-content {
+                gap: 50px;
+            }
+            
+            .profile-image-wrapper {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .profile-image-container {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .orbit {
+                width: 360px;
+                height: 360px;
+            }
+            
+            .orbit-2 {
+                width: 320px;
+                height: 320px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 60px;
+            }
+            
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.6rem;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                margin-left: 0;
+                padding-left: 70px;
+            }
+            
+            .timeline-dot {
+                left: 21px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Navbar Mobile */
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(10, 25, 47, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 25px;
+                z-index: 999;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.4rem;
+                padding: 12px 0;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            /* About Hero Mobile */
+            .about-hero {
+                padding: 170px 0 80px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.4rem;
+            }
+            
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+            
+            .profile-image-wrapper {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .profile-image-container {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .orbit {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .orbit-2 {
+                width: 260px;
+                height: 260px;
+            }
+            
+            .orbit-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            /* About Content Mobile */
+            .about-content {
+                padding: 80px 0;
+            }
+            
+            .about-card {
+                padding: 40px 30px;
+            }
+            
+            /* Footer Mobile */
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+            
+            .footer-bottom-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.3rem;
+            }
+            
+            .profile-image-wrapper {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .profile-image-container {
+                width: 170px;
+                height: 170px;
+            }
+            
+            .orbit {
+                width: 260px;
+                height: 260px;
+            }
+            
+            .orbit-2 {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-content {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-text h1 {
+                font-size: 1.9rem;
+            }
+            
+            .about-card {
+                padding: 35px 25px;
+            }
+        }
+
+       .profile-image-container{
+    width:290px;
+    height:290px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+/* MAIN IMAGE */
+.profile-image{
+    width:300px;
+    height:280px;
+    border-radius:50%;
+    border:6px solid #f4b400;
+    overflow:hidden;
+    background:#000;
+    z-index:10;
+}
+
+/* IMAGE */
+.profile-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    border-radius:50%;
+    display:block;
+    pointer-events:none;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Enhanced Professional Navbar -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <div class="logo-icon">KM</div>
+                    <div class="logo-text">Kuldeep<span>Meena</span></div>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html" class="active"><i class="fas fa-user-tie"></i> About</a></li>
+                    <li><a href="services.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                    <li><a href="portfolio.html"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Page Hero -->
+    <section class="about-hero">
+        <div class="about-hero-pattern"></div>
+        <div class="container">
+            <div class="about-hero-content">
+                <div class="hero-text">
+                    <h1>About Me</h1>
+                    <h2>Kuldeep Meena - Developer & Accountant</h2>
+                    <p>With a unique combination of technical expertise and financial acumen, I bridge the gap between technology and finance. My journey has been about mastering two distinct fields to provide comprehensive solutions that drive business success in the digital age.</p>
+                    <p>I believe that understanding both the technical and financial aspects of business gives me a unique perspective to create solutions that are not only innovative but also financially viable and strategically sound.</p>
+                </div>
+                
+                <div class="profile-animation-container">
+                    <div class="profile-image-wrapper">
+                        <!-- Orbital Animations -->
+                        <div class="orbit orbit-1"></div>
+                        <div class="orbit orbit-2"></div>
+                        
+                        <!-- Floating Icons -->
+                        <div class="orbit-icon icon-1">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="orbit-icon icon-2">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="orbit-icon icon-3">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="orbit-icon icon-4">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        
+                        <!-- Pulsing Rings -->
+                        <div class="pulse-ring pulse-ring-1"></div>
+                        <div class="pulse-ring pulse-ring-2"></div>
+                        <div class="pulse-ring pulse-ring-3"></div>
+                        
+                        <!-- Profile Image -->
+                          <div class="profile-image-container">
+                          <div class="profile-image">
+                          <img src="assets/images/Horse Photo.jpg" alt="Kuldeep Meena">
+                        </div>
+                    </div>
+                            <!-- 
+                            <img src="your-image.jpg" alt="Kuldeep Meena" class="profile-image">
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="about-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Journey & Expertise</h2>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Development Journey</h3>
+                    <p>My passion for technology began early, and I've since honed my skills across the full development stack. From frontend design to backend architecture, I create solutions that are both functional and elegant.</p>
+                    <ul class="about-list">
+                        <li>8+ years of development experience</li>
+                        <li>Specialized in MERN stack development</li>
+                        <li>Expertise in responsive web design</li>
+                        <li>Proficient in cloud technologies</li>
+                        <li>Continuous learning of new frameworks</li>
+                    </ul>
+                </div>
+                
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Accounting Expertise</h3>
+                    <p>My accounting journey complements my technical skills, allowing me to understand the financial implications of technical decisions and create solutions that improve financial efficiency.</p>
+                    <ul class="about-list">
+                        <li>Certified Professional Accountant</li>
+                        <li>Experience across multiple industries</li>
+                        <li>Expert in financial software implementation</li>
+                        <li>Tax planning and compliance specialist</li>
+                        <li>Financial forecasting and analysis</li>
+                    </ul>
+                </div>
+                
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Dual-Specialization Advantage</h3>
+                    <p>The combination of development and accounting skills gives me a unique advantage in understanding both the technical and financial aspects of business problems, allowing for more holistic solutions.</p>
+                    <ul class="about-list">
+                        <li>Bridge between tech and finance teams</li>
+                        <li>Develop financially optimized solutions</li>
+                        <li>Understand ROI of technical investments</li>
+                        <li>Create compliance-ready applications</li>
+                        <li>Strategic business technology planning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Professional Journey</h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2015-2017</span>
+                        <h4>Beginnings in Technology</h4>
+                        <p>Started my career as a junior developer, learning the fundamentals of web development while pursuing accounting certifications simultaneously.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2018-2019</span>
+                        <h4>Dual Specialization</h4>
+                        <p>Worked as a full-stack developer while handling financial consulting for small businesses, discovering the synergy between my two skill sets.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2020-2021</span>
+                        <h4>Integration of Skills</h4>
+                        <p>Started developing financial software solutions, combining my technical knowledge with accounting expertise to create specialized applications.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2022-Present</span>
+                        <h4>Independent Consulting</h4>
+                        <p>Launching my independent practice, providing comprehensive development and accounting services to businesses looking to optimize their operations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Professional Footer -->
+    <footer>
+        <div class="footer-wave"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">KM</div>
+                        <div class="footer-logo-text">Kuldeep<span>Meena</span></div>
+                    </div>
+                    <p>Providing expert development and accounting solutions that drive business growth. With a unique dual-specialization, I deliver comprehensive services that bridge technology and finance.</p>
+                    <div class="social-icons">
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Me</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="portfolio.html"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Home Address</strong>
+                                Pl No 18, Laxmi Nagar, Niwaru Road, Jhotwara, Jaipur, Rajasthan, 302012, India
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                +91 94625 91251
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                Km162613@gmail.com
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Availability</strong>
+                                Mon-Fri: 9AM - 6PM
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 Kuldeep Meena. All Rights Reserved. | <span style="color: var(--gold);">Designed with Excellence</span></p>
+                </div>
+                <ul class="footer-bottom-links">
+                    <li><a href="policies/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="policies/terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="policies/cookie-policy.html">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Set active nav link
+        const currentPage = window.location.pathname.split('/').pop();
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements to animate
+        document.querySelectorAll('.about-card, .timeline-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Trigger scroll event to set initial header state
+            window.dispatchEvent(new Event('scroll'));
+            
+            // Add floating animation delay to icons
+            document.querySelectorAll('.orbit-icon').forEach((icon, index) => {
+                icon.style.animationDelay = `${index * 0.5}s`;
+            });
+        });
+    </script>
+</body>
+</html>
